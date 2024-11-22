@@ -2,6 +2,8 @@ module com.example.apitest {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires java.net.http; // Needed for HTTP requests
+    requires json.simple;  // JSON parsing library
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
