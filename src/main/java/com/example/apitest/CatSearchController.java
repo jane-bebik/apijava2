@@ -30,7 +30,7 @@ public class CatSearchController {
 
 
     private static final String API_URL = "https://api.api-ninjas.com/v1/cats?name=";
-    private static final String API_KEY = "APIKEYHERE";
+    private static final String API_KEY = "apikey";
 
     @FXML
     public void initialize() {

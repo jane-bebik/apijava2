@@ -1,0 +1,60 @@
+/* i used a template dont judge me ok*/
+.root {
+    -fx-background-color: #8ED5DE;
+    -fx-font-family: "Arial, sans-serif";
+}
+
+/* Logo styling */
+#logo {
+
+    -fx-padding: 10 0 10 0;
+}
+
+/* TextField styling */
+#breedInput {
+    -fx-border-color: #6CC3CA;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+    -fx-font-size: 14px;
+}
+
+/* ComboBox styling */
+#suggestionsDropdown {
+    -fx-border-color: #6CC3CA;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+    -fx-font-size: 14px;
+}
+
+/* Buttons */
+#searchButton, #resetButton {
+    -fx-background-color: #6CC3CA;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 20;
+}
+#searchButton:hover, #resetButton:hover {
+    -fx-background-color: #58A5AB;
+}
+
+/* Result display box */
+#resultBox {
+    -fx-padding: 15;
+    -fx-background-color: #D2B48C;
+    -fx-border-color: #8B4513;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 2, 2);
+}
+
+/* Labels inside the resultBox */
+#resultBox Label {
+    -fx-font-size: 14px;
+    -fx-line-spacing: 5px;
+}

@@ -5,26 +5,25 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.apitest.CatSearchController"
-      alignment="CENTER" spacing="20" style="-fx-padding: 20; -fx-background-color: #8ED5DE;">
+      alignment="CENTER" spacing="20" stylesheets="@styles.css">
 
   <!-- Logo Section -->
-  <ImageView fx:id="logo" fitWidth="300" preserveRatio="true"/>
+  <ImageView fx:id="logo" fitWidth="300" preserveRatio="true" id="logo"/>
 
   <!-- Input Section -->
   <VBox alignment="CENTER" spacing="10">
-    <TextField fx:id="breedInput" promptText="Enter cat breed" prefWidth="300" style="-fx-font-size: 14;"/>
-    <ComboBox fx:id="suggestionsDropdown" promptText="Suggestions" prefWidth="300" style="-fx-font-size: 14;"/>
+    <TextField fx:id="breedInput" promptText="Enter cat breed" prefWidth="300" id="breedInput"/>
+    <ComboBox fx:id="suggestionsDropdown" promptText="Suggestions" prefWidth="300" id="suggestionsDropdown"/>
   </VBox>
 
   <!-- Search Button -->
-  <Button fx:id="searchButton" text="Search" prefWidth="150" style="-fx-font-size: 16; -fx-background-color: #6CC3CA; -fx-text-fill: white;"/>
+  <Button fx:id="searchButton" text="Search" prefWidth="150" id="searchButton"/>
 
   <!-- Result Display Section -->
-  <VBox fx:id="resultBox" alignment="CENTER" spacing="15" style="-fx-padding: 15; -fx-background-color: #D2B48C; -fx-border-color: #8B4513; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;">
-
+  <VBox fx:id="resultBox" alignment="CENTER" spacing="15" id="resultBox">
     <!-- Dynamic content will be added here -->
   </VBox>
 
   <!-- Reset Button -->
-  <Button fx:id="resetButton" text="Reset" visible="false" prefWidth="150" style="-fx-font-size: 16; -fx-background-color: #6CC3CA; -fx-text-fill: white;"/>
+  <Button fx:id="resetButton" text="Reset" visible="false" prefWidth="150" id="resetButton"/>
 </VBox>
