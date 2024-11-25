@@ -16,8 +16,8 @@ import org.json.simple.parser.JSONParser;
 
 public class Main extends Application {
 
-    private static final String API_URL = "https://api.api-ninjas.com/v1/cats?name=ragdoll";
-    private static final String API_KEY = "XvQCGEJFNvHaIZHkeR2tTw==42Pdzj6DtJ1RY4cN";
+    private static final String API_URL = "https://api.api-ninjas.com/v1/cats?name=ragdol";
+    private static final String API_KEY = "apikeyhere";
 
     @Override
     public void start(Stage primaryStage) {
