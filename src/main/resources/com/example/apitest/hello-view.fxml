@@ -3,17 +3,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.apitest.CatSearchController" spacing="10" alignment="CENTER">
-  <padding>
-    <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
-  </padding>
-  <HBox spacing="10" alignment="CENTER">
-    <TextField fx:id="breedInput" promptText="Enter cat breed"/>
-    <ComboBox fx:id="suggestionsDropdown" promptText="Suggestions"/>
-  </HBox>
-  <Button fx:id="searchButton" text="Search"/>
-  <VBox fx:id="resultBox" alignment="CENTER" spacing="10" fillWidth="true"/>
-  <Button fx:id="resetButton" text="Reset" visible="false"/>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.apitest.CatSearchController"
+      alignment="CENTER" spacing="20" style="-fx-padding: 20; -fx-background-color: #8ED5DE;">
+
+  <!-- Logo Section -->
+  <ImageView fx:id="logo" fitWidth="300" preserveRatio="true"/>
+
+  <!-- Input Section -->
+  <VBox alignment="CENTER" spacing="10">
+    <TextField fx:id="breedInput" promptText="Enter cat breed" prefWidth="300" style="-fx-font-size: 14;"/>
+    <ComboBox fx:id="suggestionsDropdown" promptText="Suggestions" prefWidth="300" style="-fx-font-size: 14;"/>
+  </VBox>
+
+  <!-- Search Button -->
+  <Button fx:id="searchButton" text="Search" prefWidth="150" style="-fx-font-size: 16; -fx-background-color: #6CC3CA; -fx-text-fill: white;"/>
+
+  <!-- Result Display Section -->
+  <VBox fx:id="resultBox" alignment="CENTER" spacing="15" style="-fx-padding: 15; -fx-background-color: #D2B48C; -fx-border-color: #8B4513; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;">
+
+    <!-- Dynamic content will be added here -->
+  </VBox>
+
+  <!-- Reset Button -->
+  <Button fx:id="resetButton" text="Reset" visible="false" prefWidth="150" style="-fx-font-size: 16; -fx-background-color: #6CC3CA; -fx-text-fill: white;"/>
 </VBox>

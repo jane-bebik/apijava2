@@ -25,14 +25,20 @@ public class CatSearchController {
     private ComboBox<String> suggestionsDropdown;
     @FXML
     private Button resetButton;
+    @FXML
+    private ImageView logo;
+
 
     private static final String API_URL = "https://api.api-ninjas.com/v1/cats?name=";
-    private static final String API_KEY = "MAHAAHHA";
+    private static final String API_KEY = "APIKEYHERE";
 
     @FXML
     public void initialize() {
+
+        logo.setImage(new Image("file:src/main/resources/img/catapp.png"));
+
         suggestionsDropdown.getItems().addAll(
-                "Abyssinian", "Siamese", "Persian", "Bengal", "Maine Coon"
+                "abyssinian", "siamese", "persian", "bengal", "maine Coon", "ragdol"
         );
         searchButton.setOnAction(event -> fetchCatData(breedInput.getText()));
         resetButton.setOnAction(event -> resetInterface());
@@ -76,29 +82,57 @@ public class CatSearchController {
                 showAlert("No Results", "No data found for the specified breed.");
                 return;
             }
+
             JSONObject cat = (JSONObject) catArray.get(0);
 
             String name = (String) cat.get("name");
             String origin = (String) cat.get("origin");
             String length = (String) cat.get("length");
             String imageLink = (String) cat.get("image_link");
-            long minWeight = (long) cat.get("min_weight");
-            long maxWeight = (long) cat.get("max_weight");
-            long minLife = (long) cat.get("min_life_expectancy");
-            long maxLife = (long) cat.get("max_life_expectancy");
+
+            long familyFriendly = ((Number) cat.get("family_friendly")).longValue();
+            long shedding = ((Number) cat.get("shedding")).longValue();
+            long generalHealth = ((Number) cat.get("general_health")).longValue();
+            long playfulness = ((Number) cat.get("playfulness")).longValue();
+            long childrenFriendly = ((Number) cat.get("children_friendly")).longValue();
+            long grooming = ((Number) cat.get("grooming")).longValue();
+            long intelligence = ((Number) cat.get("intelligence")).longValue();
+            long otherPetsFriendly = ((Number) cat.get("other_pets_friendly")).longValue();
+
+            //new stats just test
+           /* String familyFriendly= (String) cat.get("family_friendly");
+            String shedding = (String) cat.get("shedding");
+            String general_health = (String) cat.get("general_health");
+            String playfulness= (String) cat.get("playfulness");
+            String meowing= (String) cat.get("meowing");
+            String children_friendly= (String) cat.get("children_friendly");
+            String grooming= (String) cat.get("grooming");
+            String intelligence= (String) cat.get("intelligence");
+            String other_pets_friendly= (String) cat.get("other_pets_friendly");*/
+
+            // so this is so the Weight and life  is display as weight: min - max and life: min- max
+            long minWeight = ((Number) cat.get("min_weight")).longValue();
+            long maxWeight = ((Number) cat.get("max_weight")).longValue();
+            long minLife = ((Number) cat.get("min_life_expectancy")).longValue();
+            long maxLife = ((Number) cat.get("max_life_expectancy")).longValue();
 
             ImageView imageView = new ImageView(new Image(imageLink));
             imageView.setFitWidth(300);
             imageView.setPreserveRatio(true);
 
             Label details = new Label(String.format(
-                    "Name: %s\nOrigin: %s\nLength: %s\nWeight: %d - %d lbs\nLife Expectancy: %d - %d years",
-                    name, origin, length, minWeight, maxWeight, minLife, maxLife
+                    "Name: %s\nOrigin: %s\nLength: %s\nWeight: %d - %d lbs\nLife Expectancy: %d - %d years\n\n" +
+                    "Family Friendly: %d/5\nShedding: %d/5\nGeneral Health: %d/5\nPlayfulness: %d/5\n" +
+                    "Children Friendly: %d/5\nGrooming: %d/5\nIntelligence: %d/5\nOther Pets Friendly: %d/5",
+
+                    name, origin, length, minWeight, maxWeight, minLife, maxLife, familyFriendly, shedding,
+                    generalHealth, playfulness, childrenFriendly, grooming, intelligence, otherPetsFriendly
             ));
 
             resultBox.getChildren().setAll(imageView, details, resetButton);
             resetButton.setVisible(true);
         } catch (Exception e) {
+            showAlert("Error", "Failed to parse cat data. Please try again.");
             e.printStackTrace();
         }
     }
